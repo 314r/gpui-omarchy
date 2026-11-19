@@ -71,7 +71,9 @@ pub use surface::*;
 #[doc(hidden)]
 pub use gpui_kit;
 
-/// Create an application using the current desktop platform.
+/// Create an application using the current desktop platform. A phone has none
+/// here: gpui-kit leaves its platform to the app, through `Application::with_platform`.
+#[cfg(not(any(target_os = "ios", target_os = "android")))]
 pub use gpui_kit::application;
 pub use system_theme::ThemeLoadError;
 pub use table::*;
